@@ -2,7 +2,6 @@
 require('api.php');
 session_start();
 
-// Check if user is logged in
 
 // Handle khoj logic
 $searchValueFound = null;
@@ -11,19 +10,13 @@ if(isset($_POST['submit'])) {
     $inputValuesStr = $_POST['input_values'];
     $searchValue = $_POST['search_value'];
 
-    // Split the comma-separated input values into an array
     $inputValuesArray = explode(',', $inputValuesStr);
     
-    // Trim each value to remove any leading/trailing spaces
     $inputValuesArray = array_map('trim', $inputValuesArray);
 
-    // Sort the input values in descending order
     rsort($inputValuesArray);
 
-    // Store the sorted input values in the database
-    // You need to implement this part using appropriate SQL queries
-
-    // Check if the search value exists in the input values
+ 
     $searchValueFound = in_array($searchValue, $inputValuesArray);
 }
 ?>
